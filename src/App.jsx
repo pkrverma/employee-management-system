@@ -3,7 +3,7 @@ import Login from "./components/Auth/Login";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
 import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import { AuthContext } from "./context/AuthProvider";
-import { setLocalStorage } from "./utils/LocalStorage";
+import { setLocalStorage } from "./utils/localStorage";
 
 const App = () => {
   const [user, setUser] = useState(null);
