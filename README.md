@@ -2,13 +2,9 @@
 
 A role-based task management system built using React and Tailwind CSS. This application enables an admin to assign tasks to employees and monitor their progress, while employees can actively manage their task status. It simulates real-time task workflows in a frontend-only environment using localStorage and React Context.
 
----
-
 ## 🎯 Aim
 
 To create a responsive and role-driven employee task platform that helps simulate real-world task workflows without needing a backend. The system is designed to support efficient task delegation and tracking between admins and employees in a simplified frontend environment.
-
----
 
 ## 🥅 Goal
 
@@ -16,27 +12,23 @@ To create a responsive and role-driven employee task platform that helps simulat
 - Leverage React Context API and localStorage for persistent global state management.
 - Enable real-time status transitions for tasks through seamless UI interactions.
 
----
+## ✨ Features
 
-## 🚀 Features
+### 👩‍💼 Admin Panel
+- Assign new tasks to any employee using a clean, structured form.
+- Automatically updates task statistics (new/active/completed/failed).
+- View task status of all employees in a scrollable dashboard grid.
 
-### 👤 Admin Panel
-- Secure login with predefined credentials.
-- Task creation and assignment to employees (via first name).
-- Automatic task status tracking for:
-  - 🆕 New Tasks
-  - 🔄 Active Tasks
-  - ✅ Completed Tasks
-  - ❌ Failed Tasks
-- Clean form with validation and category/date inputs.
-- Instant updates reflected across task status and UI.
+### 👨‍🔧 Employee Panel
+- Role-based login to access personalized dashboards.
+- View tasks categorized as New, Active, Completed, or Failed.
+- Accept or reject tasks; task state and statistics update in real-time.
+- Fully synced with localStorage for persistent state.
 
-### 🧑‍💼 Employee Panel
-- Login with email and password.
-- View tasks assigned by the admin.
-- Accept new tasks (updates task status to active).
-- Mark active tasks as either completed or failed.
-- Status transitions are reflected immediately in the UI and persisted in localStorage.
+### 📱 Responsive Design
+- Fully responsive across devices (desktop, tablet, mobile).
+- Adaptive layouts for both admin and employee dashboards.
+- Horizontal scroll enabled for wide content (like task tables) on small screens.
 
 ### 🧩 UI & UX
 - Fully responsive layout using Tailwind CSS.
@@ -46,8 +38,6 @@ To create a responsive and role-driven employee task platform that helps simulat
   - **Green** for Completed Tasks
   - **Red** for Failed Tasks
 - Smooth state transitions with dynamic card rendering.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -59,8 +49,6 @@ To create a responsive and role-driven employee task platform that helps simulat
 | localStorage API | Persistent data storage without a backend           |
 | Vite             | Lightning-fast dev server and build tooling         |
 
----
-
 ## ✅ Advantages
 
 - 🔐 No backend required — runs entirely in the browser.
@@ -69,31 +57,24 @@ To create a responsive and role-driven employee task platform that helps simulat
 - 💡 Modular code structure for future scalability.
 - 🧠 Educational — great for understanding React hooks and app state flows.
 
----
-
 ## 🖼️ Screenshots
 
-> _Replace these links with your actual screenshot URLs_
+- **Login Screen**
+  ![Screenshot 2025-06-26 010221](https://github.com/user-attachments/assets/d82907d1-44ac-4edf-a912-f96233854e87)
 
 - **Admin Dashboard – Task Assignment**  
-  ![Admin Dashboard](https://your-screenshot-link.com/admin-dashboard.png)
+  ![Screenshot 2025-06-26 010118](https://github.com/user-attachments/assets/1c4e7263-dced-44a2-b2e5-956ad2f0c221)
 
 - **Employee View – Task Lists**  
-  ![Employee Dashboard](https://your-screenshot-link.com/employee-dashboard.png)
-
----
+  ![Screenshot 2025-06-26 010330](https://github.com/user-attachments/assets/ab51f8b2-e494-462a-91fd-7886e9eee15e)
+  ![Screenshot 2025-06-26 010427](https://github.com/user-attachments/assets/5f7bbbbc-45e8-4dea-927d-74aec7acc00e)
+  ![Screenshot 2025-06-26 010441](https://github.com/user-attachments/assets/bba21794-899d-4ad1-90fd-a36c519e9b37)
 
 ## 🎥 Demo Video
 
-> _Upload and paste your video link below_
-
-🎬 [Watch the Demo Video](https://your-demo-video-link.com)
-
----
+https://github.com/user-attachments/assets/51328c39-d508-4728-b232-296263af98fd
 
 ## 🌐 Live Deployment
 
-> _Add your Netlify/Vercel link here_
-
-🔗 [Visit Live Site](https://your-live-site-link.com)
+🔗 https://employee-management-system-silk-eight.vercel.app/
 
