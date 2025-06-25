@@ -10,11 +10,9 @@ const CreateTask = () => {
   const [taskDate, setTaskDate] = useState("");
   const [assignTo, setAssignTo] = useState("");
   const [category, setCategory] = useState("");
-  // const [newTask, setNewTask] = useState({});
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("task created");
     const newTask = {
       taskTitle,
       taskDescription,
@@ -26,16 +24,26 @@ const CreateTask = () => {
       failed: false,
       completed: false,
     };
-    const data = userData;
 
-    data.forEach(function (elem) {
-      if (assignTo == elem.firstName) {
-        elem.tasks.push(newTask);
-        elem.taskStats.newTask = elem.taskStats.newTask + 1;
+    const updatedData = userData.map((emp) => {
+      if (emp.firstName.toLowerCase() === assignTo.toLocaleLowerCase()) {
+        return {
+          ...emp,
+          tasks: [...emp.tasks, newTask],
+          taskStats: {
+            ...emp.taskStats,
+            newTask: emp.taskStats.newTask + 1,
+          },
+        };
       }
+      return emp;
     });
-    setUserData(data);
-    console.log(data);
+
+    setUserData(updatedData);
+    localStorage.setItem(
+      "employees",
+      JSON.stringify({ employees: updatedData })
+    );
 
     setTaskTitle("");
     setTaskDescription("");
@@ -43,23 +51,20 @@ const CreateTask = () => {
     setAssignTo("");
     setCategory("");
   };
+
   return (
-    <div className="p-5 bg-[#1C1C1C] mt-5 rounded">
+    <div className="p-6 mt-6 rounded-xl bg-white/5 backdrop-blur-md shadow-[inset_0_0_0.5px_rgba(255,255,255,0.1),_0_8px_24px_rgba(0,0,0,0.6)] border border-white/10 transition-all duration-500">
       <form
-        onSubmit={(e) => {
-          submitHandler(e);
-        }}
-        className="flex flex-wrap w-full items-start justify-between "
+        onSubmit={submitHandler}
+        className="flex flex-wrap w-full items-start justify-between"
       >
-        <div className="w-1/2 ">
+        <div className="w-1/2">
           <div>
             <h3 className="text-sm text-gray-300 mb-0.5">Task Title</h3>
             <input
               value={taskTitle}
-              onChange={(e) => {
-                setTaskTitle(e.target.value);
-              }}
-              className="text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
+              onChange={(e) => setTaskTitle(e.target.value)}
+              className="text-sm py-2 px-3 w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4 transition-all"
               type="text"
               placeholder="Make a UI design"
             />
@@ -68,21 +73,17 @@ const CreateTask = () => {
             <h3 className="text-sm text-gray-300 mb-0.5">Date</h3>
             <input
               value={taskDate}
-              onChange={(e) => {
-                setTaskDate(e.target.value);
-              }}
-              className="text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
+              onChange={(e) => setTaskDate(e.target.value)}
+              className="text-sm py-2 px-3 w-4/5 rounded-md bg-white/10 text-white border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-pink-400 mb-4 transition-all"
               type="date"
             />
           </div>
           <div>
-            <h3 className="text-sm text-gray-300 mb-0.5">Assign to</h3>
+            <h3 className="text-sm text-gray-300 mb-0.5">Assign to <span className="text-sm text-gray-400 mb-0.5s">(Use first name only)</span></h3>
             <input
               value={assignTo}
-              onChange={(e) => {
-                setAssignTo(e.target.value);
-              }}
-              className="text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
+              onChange={(e) => setAssignTo(e.target.value)}
+              className="text-sm py-2 px-3 w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4 transition-all"
               type="text"
               placeholder="Employee name"
             />
@@ -91,10 +92,8 @@ const CreateTask = () => {
             <h3 className="text-sm text-gray-300 mb-0.5">Category</h3>
             <input
               value={category}
-              onChange={(e) => {
-                setCategory(e.target.value);
-              }}
-              className="text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
+              onChange={(e) => setCategory(e.target.value)}
+              className="text-sm py-2 px-3 w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-4 transition-all"
               type="text"
               placeholder="Design, dev, etc"
             />
@@ -104,14 +103,17 @@ const CreateTask = () => {
           <h3 className="text-sm text-gray-300 mb-0.5">Description</h3>
           <textarea
             value={taskDescription}
-            onChange={(e) => {
-              setTaskDescription(e.target.value);
-            }}
-            className="w-full h-44 text-sm py-2 px-4 rounded outline-none bg-transparent border-[1px] border-gray-400"
+            onChange={(e) => setTaskDescription(e.target.value)}
+            className="w-full h-44 text-sm py-2 px-4 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
             cols={30}
             rows={10}
           ></textarea>
-          <button className="bg-emerald-500 py-3 hover:bg-emerald-600 px-5 rounded text-sm mt-4 w-full">
+          <button
+            className="w-full mt-4 py-3 px-6 rounded-md text-sm font-semibold text-white 
+             bg-cyan-500 hover:bg-cyan-400 active:bg-cyan-600 
+             shadow-[0_4px_20px_rgba(34,211,238,0.3)] 
+             transition-all duration-300 ease-in-out transform hover:scale-[1.01] active:scale-[0.98]"
+          >
             Create Task
           </button>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Header = (props) => {
   const username = props.data ? props.data.firstName : "Admin";
@@ -9,14 +9,16 @@ const Header = (props) => {
   };
 
   return (
-    <div className="flex items-end justify-between">
-      <h1 className="text-2xl font-medium">
-        Hello <br />{" "}
-        <span className="text-3xl font-semibold">{username} 👋</span>
-      </h1>
+    <div className="flex items-end justify-between mb-8">
+      <div>
+        <h1 className="text-xl text-white/80 font-medium">Hello,</h1>
+        <h2 className="text-3xl font-bold text-white drop-shadow">
+          {username} 👋
+        </h2>
+      </div>
       <button
         onClick={logOutUser}
-        className="bg-red-600 text-base font-medium text-white px-5 py-2 rounded-sm"
+        className="bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 transition duration-200 text-white font-semibold px-5 py-2 rounded-md shadow-lg"
       >
         Log Out
       </button>

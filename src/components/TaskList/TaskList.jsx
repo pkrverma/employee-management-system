@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import AcceptTask from "./AcceptTask";
 import NewTask from "./NewTask";
 import CompleteTask from "./CompleteTask";
@@ -12,10 +12,10 @@ const TaskList = ({ data }) => {
     >
       {data.tasks.map((elem, idx) => {
         if (elem.active) {
-          return <AcceptTask data={elem} key={idx} />;
+          return <AcceptTask data={elem} key={idx} loggedInUser={data} />;
         }
         if (elem.newTask) {
-          return <NewTask data={elem} key={idx} />;
+          return <NewTask data={elem} key={idx} loggedInUser={data} />;
         }
         if (elem.completed) {
           return <CompleteTask data={elem} key={idx} />;

@@ -6,7 +6,7 @@ const employees = [
     email: "employee1@example.com",
     password: "123",
     taskStats: {
-      active: 2,
+      active: 1,
       newTask: 1,
       completed: 1,
       failed: 0,
@@ -37,7 +37,7 @@ const employees = [
         taskDescription: "Write test cases for payment API.",
         taskDate: "2025-05-28",
         category: "testing",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -51,7 +51,7 @@ const employees = [
     email: "employee2@example.com",
     password: "123",
     taskStats: {
-      active: 2,
+      active: 1,
       newTask: 1,
       completed: 2,
       failed: 0,
@@ -82,7 +82,7 @@ const employees = [
         taskDescription: "Resolve grid layout issue on Safari.",
         taskDate: "2025-05-29",
         category: "development",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -106,7 +106,7 @@ const employees = [
     email: "employee3@example.com",
     password: "123",
     taskStats: {
-      active: 1,
+      active: 0,
       newTask: 1,
       completed: 2,
       failed: 1,
@@ -127,7 +127,7 @@ const employees = [
         taskDescription: "Implement theme switcher feature.",
         taskDate: "2025-05-27",
         category: "UI/UX",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -161,7 +161,7 @@ const employees = [
     email: "employee4@example.com",
     password: "123",
     taskStats: {
-      active: 2,
+      active: 1,
       newTask: 1,
       completed: 1,
       failed: 0,
@@ -192,7 +192,7 @@ const employees = [
         taskDescription: "Remove or update outdated URLs.",
         taskDate: "2025-05-30",
         category: "maintenance",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -206,7 +206,7 @@ const employees = [
     email: "employee5@example.com",
     password: "123",
     taskStats: {
-      active: 2,
+      active: 1,
       newTask: 1,
       completed: 2,
       failed: 0,
@@ -247,7 +247,7 @@ const employees = [
         taskDescription: "Emails not sent to users after signup.",
         taskDate: "2025-05-30",
         category: "backend",
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -265,8 +265,10 @@ const admin = [
 ];
 
 export const setLocalStorage = () => {
-  localStorage.setItem("employees", JSON.stringify(employees));
-  localStorage.setItem("admin", JSON.stringify(admin));
+  if(!localStorage.getItem("employees")){
+    localStorage.setItem("admin", JSON.stringify(admin));
+    localStorage.setItem("employees", JSON.stringify(employees));
+  }
 };
 
 export const getLocalStorage = () => {
