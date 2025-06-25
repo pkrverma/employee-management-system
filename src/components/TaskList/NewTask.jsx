@@ -49,7 +49,7 @@ const NewTask = ({ data, loggedInUser }) => {
   };
 
   return (
-    <div className="flex-shrink-0 h-full w-[300px] p-5 rounded-xl border border-blue-400/30 bg-blue-400/10 backdrop-blur-md shadow-lg text-white">
+    <div className="flex-shrink-0 h-full lg:w-[300px] p-5 rounded-xl border border-blue-400/30 bg-blue-400/10 backdrop-blur-md shadow-lg text-white">
       <div className="flex justify-between items-center">
         <h3 className="bg-white/10 text-sm px-3 py-1 rounded capitalize text-blue-300 border border-blue-500/30">
           {data.category}

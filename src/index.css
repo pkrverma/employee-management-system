@@ -6,6 +6,7 @@
     color: #fff;
 }
 
-#tasklist::-webkit-scrollbar {
+#tasklist::-webkit-scrollbar,
+#taskTable::-webkit-scrollbar {
     display: none;
 }

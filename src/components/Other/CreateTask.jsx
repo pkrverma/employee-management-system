@@ -58,13 +58,13 @@ const CreateTask = () => {
         onSubmit={submitHandler}
         className="flex flex-wrap w-full items-start justify-between"
       >
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2">
           <div>
             <h3 className="text-sm text-gray-300 mb-0.5">Task Title</h3>
             <input
               value={taskTitle}
               onChange={(e) => setTaskTitle(e.target.value)}
-              className="text-sm py-2 px-3 w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4 transition-all"
+              className="text-sm py-2 px-3 w-full lg:w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4 transition-all"
               type="text"
               placeholder="Make a UI design"
             />
@@ -74,8 +74,9 @@ const CreateTask = () => {
             <input
               value={taskDate}
               onChange={(e) => setTaskDate(e.target.value)}
-              className="text-sm py-2 px-3 w-4/5 rounded-md bg-white/10 text-white border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-pink-400 mb-4 transition-all"
+              className="text-sm py-2 px-3 w-full lg:w-4/5 rounded-md bg-white/10 text-white border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-pink-400 mb-4 transition-all"
               type="date"
+              placeholder="Select date"
             />
           </div>
           <div>
@@ -83,7 +84,7 @@ const CreateTask = () => {
             <input
               value={assignTo}
               onChange={(e) => setAssignTo(e.target.value)}
-              className="text-sm py-2 px-3 w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4 transition-all"
+              className="text-sm py-2 px-3 w-full lg:w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4 transition-all"
               type="text"
               placeholder="Employee name"
             />
@@ -93,13 +94,13 @@ const CreateTask = () => {
             <input
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="text-sm py-2 px-3 w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-4 transition-all"
+              className="text-sm py-2 px-3 w-full lg:w-4/5 rounded-md bg-white/10 text-white placeholder-white/60 border border-purple-400/30 focus:outline-none focus:ring-2 focus:ring-yellow-400 mb-4 transition-all"
               type="text"
               placeholder="Design, dev, etc"
             />
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2">
           <h3 className="text-sm text-gray-300 mb-0.5">Description</h3>
           <textarea
             value={taskDescription}

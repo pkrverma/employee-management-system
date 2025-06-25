@@ -8,7 +8,7 @@ const TaskList = ({ data }) => {
   return (
     <div
       id="tasklist"
-      className="h-[50%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap py-5 mt-10"
+      className="h-[50%] overflow-x-auto grid grid-cols-1 md:grid-cols-2 lg:flex items-center justify-start gap-5 flex-nowrap py-5 mt-10"
     >
       {data.tasks.map((elem, idx) => {
         if (elem.active) {

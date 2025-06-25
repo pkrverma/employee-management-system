@@ -50,7 +50,7 @@ const AcceptTask = ({ data, loggedInUser }) => {
   };
 
   return (
-    <div className="flex-shrink-0 h-full w-[300px] p-5 rounded-xl border border-yellow-500/30 bg-yellow-500/10 backdrop-blur-md shadow-xl text-white">
+    <div className="flex-shrink-0 h-full lg:w-[300px] p-5 rounded-xl border border-yellow-500/30 bg-yellow-500/10 backdrop-blur-md shadow-xl text-white">
       <div className="flex justify-between items-center">
         <h3 className="bg-white/10 text-sm px-3 py-1 rounded capitalize text-yellow-300 border border-yellow-500/30">
           {data.category}

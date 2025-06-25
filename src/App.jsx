@@ -9,6 +9,7 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
   const [userData, setUserData] = useContext(AuthContext);
+  const [loginError, setLoginError] = useState("");
 
   // Setup default users in localStorage if needed
   useEffect(() => {
@@ -41,6 +42,7 @@ const App = () => {
   const handleLogin = (email, password) => {
     if (email === "admin@example.com" && password === "123") {
       setUser("admin");
+      setLoginError(""); // Clear previous error
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
     } else if (userData) {
       const employee = userData.find(
@@ -49,25 +51,31 @@ const App = () => {
       if (employee) {
         setUser("employee");
         setLoggedInUserData(employee);
+        setLoginError(""); // Clear previous error
         localStorage.setItem(
           "loggedInUser",
           JSON.stringify({ role: "employee", data: employee })
         );
+      } else {
+        setLoginError("Incorrect email or password."); // Show error
       }
+    } else {
+      setLoginError("User data not loaded."); // Fallback error
     }
   };
 
   // Apply background styles conditionally
   return (
     <div
-      className={`h-full w-full transition-all duration-500 ${
+      className={`f-dvh w-full transition-all duration-500 ${
         !user
           ? "bg-gradient-to-br from-purple-700 via-pink-500 to-yellow-400"
           : "bg-gradient-to-br from-gray-900 via-slate-800 to-gray-950 text-white"
       }`}
     >
       {!user ? (
-        <Login handleLogin={handleLogin} />
+        <Login handleLogin={handleLogin} loginError={loginError} />
+
       ) : user === "admin" ? (
         <AdminDashboard changeUser={setUser} />
       ) : user === "employee" ? (
